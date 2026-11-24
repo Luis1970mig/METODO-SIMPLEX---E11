@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17365d">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Aula Álgebra">
+  <meta name="description" content="Aplicación educativa de programación lineal: maximización con cuatro variables y dos restricciones.">
+  <title>Álgebra Lineal | Programación lineal</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Inicio">
+      <span class="brand-mark">∑</span>
+      <span><strong>Aula Matemática</strong><small>ÁLGEBRA LINEAL</small></span>
+    </a>
+    <nav aria-label="Navegación principal">
+      <a href="#problema">Problema</a><a href="#resolucion">Resolución</a><a href="#laboratorio">Laboratorio</a><a href="#evaluacion">Evaluación</a>
+    </nav>
+    <button id="installBtn" class="btn btn-outline install-btn" hidden>Instalar aplicación</button>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">RECURSO DIDÁCTICO INTERACTIVO</span>
+        <h1>Programación<br><em>lineal</em></h1>
+        <p>Aprende a resolver un problema de maximización mediante restricciones, sustitución, comprobación y demostración de optimalidad.</p>
+        <div class="hero-actions"><a class="btn btn-orange" href="#problema">Comenzar lección</a><a class="btn btn-light" href="resolucion.pdf" download>Descargar resolución PDF</a></div>
+        <div class="hero-meta"><span>● 6 módulos de aprendizaje</span><span>● Tablas y gráficos dinámicos</span></div>
+      </div>
+      <div class="hero-card" aria-label="Resumen de la solución">
+        <div class="hero-card-top"><span>RESULTADO ÓPTIMO</span><span class="status-dot"></span></div>
+        <div class="hero-number">156</div>
+        <div class="hero-label">Valor máximo de Z</div>
+        <div class="solution-grid"><div><small>x₁</small><b>0</b></div><div><small>x₂</small><b>0</b></div><div><small>x₃</small><b>49</b></div><div><small>x₄</small><b>41</b></div></div>
+        <div class="hero-card-foot">Solución: (0, 0, 49, 41)</div>
+      </div>
+    </section>
+
+    <section class="section" id="problema">
+      <div class="section-heading"><span class="eyebrow">01 · PLANTEAMIENTO</span><h2>El problema original</h2><p>Se conserva íntegramente el enunciado, sin alterar ningún coeficiente ni condición.</p></div>
+      <div class="problem-layout">
+        <article class="panel problem-main">
+          <span class="tag">FUNCIÓN OBJETIVO</span>
+          <div class="equation large">Maximice&nbsp; Z = x<sub>1</sub> + 2x<sub>2</sub> − x<sub>3</sub> + 5x<sub>4</sub></div>
+          <div class="rule"></div><span class="tag">SUJETO A</span>
+          <div class="equation">2x<sub>1</sub> + 3x<sub>2</sub> + x<sub>3</sub> − x<sub>4</sub> ≤ 8</div>
+          <div class="equation">3x<sub>1</sub> + x<sub>2</sub> − 4x<sub>3</sub> + 5x<sub>4</sub> ≤ 9</div>
+          <div class="equation">x<sub>1</sub> ≥ 0, &nbsp;x<sub>2</sub> ≥ 0, &nbsp;x<sub>3</sub> ≥ 0, &nbsp;x<sub>4</sub> ≥ 0</div>
+        </article>
+        <aside class="panel learning-note"><div class="note-icon">✦</div><h3>¿Qué se busca?</h3><p>Encontrar los valores no negativos de las variables que produzcan el mayor valor posible de la función objetivo, respetando simultáneamente las dos restricciones.</p><div class="mini-stat"><b>4</b><span>variables de decisión</span></div><div class="mini-stat"><b>2</b><span>restricciones principales</span></div></aside>
+      </div>
+    </section>
+
+    <section class="section" id="resolucion">
+      <div class="section-heading"><span class="eyebrow">02 · RESOLUCIÓN GUIADA</span><h2>De las restricciones al resultado</h2><p>Sigue cada etapa para comprender de dónde proviene la solución.</p></div>
+      <div class="steps" id="steps">
+        <button class="step active" data-step="0"><span>1</span><b>Asignación inicial</b></button><button class="step" data-step="1"><span>2</span><b>Igualar restricciones</b></button><button class="step" data-step="2"><span>3</span><b>Despejar y sustituir</b></button><button class="step" data-step="3"><span>4</span><b>Calcular Z</b></button><button class="step" data-step="4"><span>5</span><b>Comprobar</b></button><button class="step" data-step="5"><span>6</span><b>Demostrar máximo</b></button>
+      </div>
+      <article class="panel step-content" aria-live="polite"><div class="step-counter" id="stepCounter">PASO 1 DE 6</div><h3 id="stepTitle">Asignación inicial</h3><div id="stepBody"></div><div class="step-controls"><button class="btn btn-outline" id="prevStep" disabled>← Anterior</button><button class="btn btn-blue" id="nextStep">Siguiente paso →</button></div></article>
+    </section>
+
+    <section class="section" id="laboratorio">
+      <div class="section-heading"><span class="eyebrow">03 · EXPLORACIÓN</span><h2>Laboratorio dinámico</h2><p>Modifica los valores de prueba y observa cómo cambian las evaluaciones. La solución óptima demostrada permanece identificada por separado.</p></div>
+      <div class="lab-grid">
+        <article class="panel">
+          <div class="panel-title"><div><span class="tag">ENTRADA DE DATOS</span><h3>Valores de las variables</h3></div><button class="text-button" id="resetValues">Restablecer</button></div>
+          <div class="inputs-grid" id="variableInputs">
+            <label>x₁<input type="number" id="x1" value="0" min="0" step="any"></label><label>x₂<input type="number" id="x2" value="0" min="0" step="any"></label><label>x₃<input type="number" id="x3" value="49" min="0" step="any"></label><label>x₄<input type="number" id="x4" value="41" min="0" step="any"></label>
+          </div>
+          <p class="helper">Introduce valores no negativos para evaluar un punto candidato.</p>
+          <div class="result-strip"><span>Función objetivo calculada</span><strong id="zValue">156</strong></div>
+        </article>
+        <article class="panel">
+          <div class="panel-title"><div><span class="tag">TABLA DINÁMICA</span><h3>Verificación de restricciones</h3></div><span class="live-pill">EN VIVO</span></div>
+          <div class="table-wrap"><table><thead><tr><th>Restricción</th><th>Lado izquierdo</th><th>Límite</th><th>Estado</th></tr></thead><tbody id="constraintRows"><tr><td>1</td><td>8</td><td>8</td><td>✓ Cumple</td></tr><tr><td>2</td><td>9</td><td>9</td><td>✓ Cumple</td></tr></tbody></table></div>
+          <p class="helper" id="feasibilityMessage">El punto evaluado satisface ambas restricciones y la no negatividad.</p>
+        </article>
+      </div>
+      <div class="charts-grid">
+        <article class="panel chart-panel"><div class="panel-title"><div><span class="tag">GRÁFICA 01</span><h3>Uso de las restricciones</h3></div></div><canvas id="constraintChart" height="230" role="img" aria-label="Gráfico de los lados izquierdos comparados con los límites de las restricciones"></canvas><p class="chart-caption">Compara el lado izquierdo calculado con el límite de cada restricción.</p></article>
+        <article class="panel chart-panel"><div class="panel-title"><div><span class="tag">GRÁFICA 02</span><h3>Contribución a Z</h3></div></div><canvas id="contributionChart" height="230" role="img" aria-label="Gráfico de contribución de cada variable a la función objetivo"></canvas><p class="chart-caption">Contribuciones: x₁, 2x₂, −x₃ y 5x₄.</p></article>
+      </div>
+      <article class="panel proof-panel"><span class="tag">ESQUEMA DE OPTIMALIDAD</span><h3>¿Por qué 156 es el máximo global?</h3><div class="proof-flow"><div class="proof-node"><small>Restricción 1</small><b>× 15</b></div><div class="proof-plus">+</div><div class="proof-node"><small>Restricción 2</small><b>× 4</b></div><div class="proof-arrow">→</div><div class="proof-node highlighted"><small>Combinación</small><b>42x₁ + 49x₂ − x₃ + 5x₄ ≤ 156</b></div></div><div class="equation proof-equation">Z = (42x<sub>1</sub> + 49x<sub>2</sub> − x<sub>3</sub> + 5x<sub>4</sub>) − 41x<sub>1</sub> − 47x<sub>2</sub> ≤ 156</div><p>Como x₁ y x₂ son no negativos, se concluye que Z ≤ 156. La solución (0, 0, 49, 41) alcanza ese valor; por tanto, es una solución óptima global.</p></article>
+    </section>
+
+    <section class="section" id="evaluacion">
+      <div class="section-heading"><span class="eyebrow">04 · COMPRUEBA LO APRENDIDO</span><h2>Evaluación interactiva</h2><p>Responde las preguntas y recibe una calificación automática.</p></div>
+      <article class="panel quiz-panel"><div class="quiz-top"><span class="tag">3 PREGUNTAS</span><span id="quizProgress">0 de 3 respondidas</span></div>
+        <form id="quizForm">
+          <fieldset><legend>1. ¿Cuál es el valor máximo de Z?</legend><label class="option"><input type="radio" name="q1" value="156"> 156</label><label class="option"><input type="radio" name="q1" value="149"> 149</label><label class="option"><input type="radio" name="q1" value="205"> 205</label></fieldset>
+          <fieldset><legend>2. ¿Cuánto vale la variable x₃ en la solución óptima?</legend><label class="option"><input type="radio" name="q2" value="41"> 41</label><label class="option"><input type="radio" name="q2" value="49"> 49</label><label class="option"><input type="radio" name="q2" value="8"> 8</label></fieldset>
+          <fieldset><legend>3. ¿Cuánto vale la variable x₁ en la solución óptima?</legend><label class="option"><input type="radio" name="q3" value="0"> 0</label><label class="option"><input type="radio" name="q3" value="9"> 9</label><label class="option"><input type="radio" name="q3" value="41"> 41</label></fieldset>
+          <button class="btn btn-orange" type="submit">Calificar respuestas</button><button class="btn btn-outline" type="button" id="retryQuiz">Reintentar</button>
+        </form><div id="quizResult" class="quiz-result" aria-live="polite"></div>
+      </article>
+    </section>
+
+    <section class="download-band"><div><span class="eyebrow">LLEVA EL MATERIAL CONTIGO</span><h2>Estudia desde cualquier lugar.</h2><p>Descarga la resolución en PDF o instala esta aplicación desde el navegador compatible.</p></div><div class="download-actions"><a class="btn btn-orange" href="resolucion.pdf" download>↓ Descargar PDF</a><button class="btn btn-light" id="installBtnBottom" hidden>＋ Instalar aplicación</button></div></section>
+  </main>
+  <footer><span> AULA MATEMÁTICA · ÁLGEBRA LINEAL</span><span>Recurso educativo · Programación lineal</span></footer>
+  <script src="app.js" defer></script>
+</body>
+</html>
